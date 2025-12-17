@@ -1,10 +1,10 @@
 # Trabalho de Conclusão de Curso
 
-Autores: Ricardo Alves Rodrigues
-Orientador: Talles Marcelo Gonçalves de Andrade Barbosa
-Universidade: Pontifícia Universidade Católica de Goiás
-Trabalho de Conclusão de Curso
-Projeto:DESENVOLVIMENTO DE JOGOS UTILIZANDO INTERFACE TANGÍVEL
+### **Autores: Ricardo Alves Rodrigues**
+### **Orientador: Talles Marcelo Gonçalves de Andrade Barbosa**
+### **Universidade: Pontifícia Universidade Católica de Goiás**
+### **Trabalho de Conclusão de Curso**
+### **Projeto:DESENVOLVIMENTO DE JOGOS UTILIZANDO INTERFACE TANGÍVEL**
 
 ---
 
