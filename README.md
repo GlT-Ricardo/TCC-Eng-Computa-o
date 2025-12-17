@@ -38,34 +38,7 @@ Neste projeto é apresentado o desenvolvimento de jogos para o  sistema ARSandpl
    #### **Estrutura Completa do Projeto 3D SandPlay**
 ![projeto TCC2](https://github.com/user-attachments/assets/bafc8894-e3ea-4a82-93e9-7c4852242ea6)
 
----
 
-## **Funcionalidades**
-### **Interface Gráfica**
-- Exibe objetos gráficos na caixa de areia por meio do projetor.
-- Muda o cenário de acordo com a captura de movimentos feitos na região de interesse (caixa de areia).
-- Executa, de forma automática, a calibração utilizando apenas os dados gerados pelo sensor e pelo projetor multimídia.
-
-## **Casos de Uso**
-Os casos de uso deste trabalho possibilitam:
-- Aplicar testes e coletar informações necessárias (uso de questionário) para avaliar a execução das atividades propostas aos voluntários.
-- Avaliar a capacidade de replicação das imagens projetadas em um monitor de vídeo pelos voluntários.
-- Analisar se o voluntário manifestou resistência (desconforto ou rejeição) ou interesse ao manipular a areia na caixa.
-
-### **Fluxograma e Processos**
-1. Processos de teste:
-   
-![image](https://github.com/user-attachments/assets/64f476d1-ea36-49c2-8bf7-270397e40e1b)
-
-2. Relatório de atividade de teste:
-  
-![image](https://github.com/user-attachments/assets/f558d194-33fb-40c9-8106-4c0b3b7a03a3)
-
-3. Teste executado por um voluntário:
-     
-![3D_SANDPLAY_2x_optimized](https://github.com/user-attachments/assets/f26d152f-044a-41a0-81cf-f48e49fd209f)
-
----
 
 ## **Como Rodar o Projeto**
 ## 🧰 Passo 1 – Instalação dos Componentes Físicos
@@ -133,8 +106,6 @@ Os casos de uso deste trabalho possibilitam:
 
 ## 📸 Resultado
 
-![projeto TCC3](https://github.com/user-attachments/assets/dae26351-cbe5-45da-9b38-65e0d8d4dda1)
-
 ---
 
 ## 🔗 Licenças
@@ -177,23 +148,7 @@ As possíveis melhorias e expansões do sistema incluem:
 - **Novos Casos de Uso**: Adicionar outros casos de uso relacionados a área da saúde.
 - **Testes com outros Componentes de Sistema**: Realizar teste com componentes diferentes de hardware e software, priorizando a portabilidade e usabilidade.
 
----
 
-## **Apresentação PowerPoint do TCC**
-O slide da apresentação se encontra no arquivo do projeto nomeado como: "MIT URTC 2019.pptx"
-[MIT URTC 2019.pptx](https://github.com/user-attachments/files/20091417/MIT.URTC.2019.pptx)
-
----
-
-## **Vídeo Apresentação do TCC**
-- Vídeo de apresentação do projeto sendo executando está disponível no canal do YouTube da PUC TV Goiás nomeado como: 
-"Robô que dança ajuda alunos do Projeto Alfa Down." https://www.youtube.com/watch?v=UQaTI5Wlw-c&t=190s&ab_channel=PUCTVGOI%C3%81S
-
----
-
-Link para leitura dos artigos científicos:
-- IJCA: https://www.ijcaonline.org/archives/volume178/number45/30850-2019919360/
-- IEEE: https://ieeexplore.ieee.org/document/9660441
- ---
 
 Github Magic Sand: https://github.com/thomwolf/Magic-Sand/blob/master/README.md
+Github 3D Sandplay https://github.com/josefoberdan/Projeto3DSandPlay
