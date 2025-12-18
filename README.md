@@ -92,11 +92,13 @@ Neste projeto é apresentado o desenvolvimento de jogos para o  sistema ARSandpl
 
 ## 🟢 Passo 4 – Executar a Aplicação
 
-1. Pressione **barra de espaço** ou clique em **RUN**
+1. Clique em **RUN**
 2. Verifique:
    - **Mapa colorido com linhas de contorno** na areia
-   - **FRAMERATE em torno de 60 FPS**
-3. Execute a aplicação.
+   - **FRAMERATE em torno de 30 -60 FPS**
+3. Para dar inicio os jogos use comandos via teclado, com as telas 1 e 2:
+  - Precionando a **tecla 1**, será iniciado o **Jogo da Alimentação**
+  - Precionando a **tecla 2**, será iniciado o **Jogo da Sobrevicência**
 
 ---
 
