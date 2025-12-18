@@ -142,5 +142,5 @@ Este projeto segue os termos da licença do repositório original [Magic-Sand](h
 
 
 
-Github Magic Sand: https://github.com/thomwolf/Magic-Sand/blob/master/README.md
-Github 3D Sandplay https://github.com/josefoberdan/Projeto3DSandPlay
+### **Github Magic Sand:** https://github.com/thomwolf/Magic-Sand/blob/master/README.md
+### **Github 3D Sandplay:** https://github.com/josefoberdan/Projeto3DSandPlay
