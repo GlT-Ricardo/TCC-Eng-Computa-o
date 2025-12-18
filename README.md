@@ -35,10 +35,6 @@ Neste projeto é apresentado o desenvolvimento de jogos para o  sistema ARSandpl
 
 ---
 
-   #### **Estrutura Completa do Projeto 3D SandPlay**
-![projeto TCC2](https://github.com/user-attachments/assets/bafc8894-e3ea-4a82-93e9-7c4852242ea6)
-
-
 
 ## **Como Rodar o Projeto**
 ## 🧰 Passo 1 – Instalação dos Componentes Físicos
