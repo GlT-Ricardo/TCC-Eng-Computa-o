@@ -112,16 +112,42 @@ Ao realizar o download, abra o projeto no ambiente de desenvolvimento seguindo e
 
 ## 🎯 Passo 3 – Calibrar a Aplicação
 
-1. **Achate a areia** na caixa de areia
-2. Ative a **visualização de profundidade** em:  
-   `Avançado > Exibir Exibição de Profundidade do Kinect`
-3. Clique em **Calibração**
-4. **Desenhe a região da areia** com o mouse na visualização
-5. Pressione **“Calibrar Kinect e Projetor automaticamente”**  
-   - Um padrão de **xadrez** será projetado
-6. **Cubra a caixa** com papelão claro quando solicitado
-7. Clique em **OK** para projetar novos padrões sobre o papelão
-8. Confirme que a **janela de status** indica calibração OK
+
+## 🔧 Calibração do Sistema 3D SandPlay
+
+### 📏 Passo 1 – Nivelar a areia
+
+Certifique-se de que a areia esteja **bem nivelada** na caixa.
+Isso garante leituras corretas de profundidade pelo sistema.
+
+### ⚙️ Passo 2 – Acessar as configurações
+
+Acesse a aba **Settings** e selecione **Calibration**.
+
+### 🖱️ Passo 3 – Definir a região da areia
+
+Clique em **Manually Define Sand Region**.
+Utilize o **mouse** para delimitar a área correspondente à caixa de areia.
+
+### 🔄 Passo 4 – Iniciar calibração automática
+
+Clique em **Automatically Calibrate Kinect & Projector** para iniciar a calibração entre o **Kinect** e o **projetor**.
+
+
+### 🔍 Passo 5 – Primeira etapa da calibração
+
+A calibração será realizada **diretamente sobre a superfície da areia**.
+Ao final, o sistema solicitará que a caixa de areia seja **totalmente coberta** (papelão, madeira ou material similar).
+
+
+### 📦 Passo 6 – Segunda etapa da calibração
+
+Com a caixa coberta,  pressione **OK** para o sistema realizar a segunda etapa de calibração, identificando corretamente os relevos da areia.
+
+### 🎨 Passo 7 – Verificar o funcionamento
+
+Verifique as mensagens exibidas na janela **Status**.
+A calibração estará correta se o **mapa colorido com linhas de contorno** for projetado sobre a areia.
 
 ---
 
