@@ -51,7 +51,7 @@ CFeedingGameController::CFeedingGameController()
     // CONTROLES DE TAMANHO E POSIÇÃO
     starMinSize = 40.0f;     // Tamanho mínimo das estrelas (efeitos visuais)
     starMaxSize = 100.0f;    // Tamanho máximo das estrelas
-    medalYPosition = 100.0f; // Posição Y da medalha na tela
+    trophyYPosition = 100.0f; // Posição Y da troféu na tela
     trophyYPosition = 120.0f; // Posição Y do troféu na tela
 
     // CARREGAR IMAGEM DO SPLASH SCREEN (tela de apresentação)
@@ -70,9 +70,9 @@ CFeedingGameController::CFeedingGameController()
     std::string confettiPath = "boidgame/art/confetti.png";
     std::string starsPath = "boidgame/art/stars.png";
     std::string trophyPath = "boidgame/art/trophy.png";
-    std::string bronzeMedalPath = "boidgame/art/bronze_trophy.png";
-    std::string silverMedalPath = "boidgame/art/silver_trophy.png";
-    std::string goldMedalPath = "boidgame/art/gold_trophy.png";
+    std::string bronzetrophyPath = "boidgame/art/bronze_trophy.png";
+    std::string silvertrophyPath = "boidgame/art/silver_trophy.png";
+    std::string goldtrophyPath = "boidgame/art/gold_trophy.png";
     std::string fireworksPath = "boidgame/art/fireworks.png";
 
     // Tentar carregar as imagens
@@ -93,29 +93,29 @@ CFeedingGameController::CFeedingGameController()
         allImagesLoaded = false;
     }
 
-    // Se não conseguir carregar as medalhas, cria fallbacks básicos
-    if (!bronzeMedalImage.load(bronzeMedalPath)) {
-        ofLogError("CFeedingGameController") << "ERRO: Não foi possível carregar bronze_medal.png";
-        // Fallback: criar medalha bronze básica
-        bronzeMedalImage.allocate(100, 100, OF_IMAGE_COLOR_ALPHA);
-        bronzeMedalImage.getPixels().setColor(ofColor(205, 127, 50)); // Cor bronze
-        bronzeMedalImage.update();
+    // Se não conseguir carregar os troféus, cria fallbacks básicos
+    if (!bronzetrophyImage.load(bronzetrophyPath)) {
+        ofLogError("CFeedingGameController") << "ERRO: Não foi possível carregar bronze_trophy.png";
+        // Fallback: criar troféu bronze básica
+        bronzetrophyImage.allocate(100, 100, OF_IMAGE_COLOR_ALPHA);
+        bronzetrophyImage.getPixels().setColor(ofColor(205, 127, 50)); // Cor bronze
+        bronzetrophyImage.update();
     }
 
-    if (!silverMedalImage.load(silverMedalPath)) {
-        ofLogError("CFeedingGameController") << "ERRO: Não foi possível carregar silver_medal.png";
-        // Fallback: criar medalha prata básica
-        silverMedalImage.allocate(100, 100, OF_IMAGE_COLOR_ALPHA);
-        silverMedalImage.getPixels().setColor(ofColor(192, 192, 192)); // Cor prata
-        silverMedalImage.update();
+    if (!silvertrophyImage.load(silvertrophyPath)) {
+        ofLogError("CFeedingGameController") << "ERRO: Não foi possível carregar silver_trophy.png";
+        // Fallback: criar troféu prata básica
+        silvertrophyImage.allocate(100, 100, OF_IMAGE_COLOR_ALPHA);
+        silvertrophyImage.getPixels().setColor(ofColor(192, 192, 192)); // Cor prata
+        silvertrophyImage.update();
     }
 
-    if (!goldMedalImage.load(goldMedalPath)) {
-        ofLogError("CFeedingGameController") << "ERRO: Não foi possível carregar gold_medal.png";
-        // Fallback: criar medalha ouro básica
-        goldMedalImage.allocate(100, 100, OF_IMAGE_COLOR_ALPHA);
-        goldMedalImage.getPixels().setColor(ofColor(255, 215, 0)); // Cor ouro
-        goldMedalImage.update();
+    if (!goldtrophyImage.load(goldtrophyPath)) {
+        ofLogError("CFeedingGameController") << "ERRO: Não foi possível carregar gold_trophy.png";
+        // Fallback: criar troféu ouro básica
+        goldtrophyImage.allocate(100, 100, OF_IMAGE_COLOR_ALPHA);
+        goldtrophyImage.getPixels().setColor(ofColor(255, 215, 0)); // Cor ouro
+        goldtrophyImage.update();
     }
 
     if (!fireworksImage.load(fireworksPath)) {
@@ -149,9 +149,9 @@ void CFeedingGameController::debugPrintImageStatus()
     std::cout << "Confetti: " << (confettiImage.isAllocated() ? "OK" : "FALHA") << std::endl;
     std::cout << "Stars: " << (starsImage.isAllocated() ? "OK" : "FALHA") << std::endl;
     std::cout << "Trophy: " << (trophyImage.isAllocated() ? "OK" : "FALHA") << std::endl;
-    std::cout << "Bronze Medal: " << (bronzeMedalImage.isAllocated() ? "OK" : "FALHA") << std::endl;
-    std::cout << "Silver Medal: " << (silverMedalImage.isAllocated() ? "OK" : "FALHA") << std::endl;
-    std::cout << "Gold Medal: " << (goldMedalImage.isAllocated() ? "OK" : "FALHA") << std::endl;
+    std::cout << "Bronze trophy: " << (bronzetrophyImage.isAllocated() ? "OK" : "FALHA") << std::endl;
+    std::cout << "Silver trophy: " << (silvertrophyImage.isAllocated() ? "OK" : "FALHA") << std::endl;
+    std::cout << "Gold trophy: " << (goldtrophyImage.isAllocated() ? "OK" : "FALHA") << std::endl;
     std::cout << "Fireworks: " << (fireworksImage.isAllocated() ? "OK" : "FALHA") << std::endl;
     std::cout << "==================================================" << std::endl;
 }
@@ -709,42 +709,42 @@ void CFeedingGameController::drawLevelCompleteScreen()
     }
     ofPopStyle();
 
-    // CAMADA 2: MEDALHA DA FASE COMPLETADA
+    // CAMADA 2: troféu DA FASE COMPLETADA
     ofPushStyle();
-    ofImage* currentMedal = nullptr;
-    string medalText = "";
+    ofImage* currenttrophy = nullptr;
+    string trophyText = "";
 
-    // Escolhe medalha baseada na fase completada
+    // Escolhe troféu baseada na fase completada
     if (currentLevel - 1 == 1) { // Fase 1 completada
-        currentMedal = &bronzeMedalImage;
+        currenttrophy = &bronzetrophyImage;
     }
     else if (currentLevel - 1 == 2) { // Fase 2 completada
-        currentMedal = &silverMedalImage;
+        currenttrophy = &silvertrophyImage;
     }
     else if (currentLevel - 1 == 3) { // Fase 3 completada
-        currentMedal = &goldMedalImage;
+        currenttrophy = &goldtrophyImage;
     }
 
-    // Desenha medalha se disponível
-    if (currentMedal && currentMedal->isAllocated()) {
-        float medalSize = 120;
-        float medalX = (projROI.width - medalSize) / 2; // Centraliza
-        float medalY = medalYPosition;
+    // Desenha troféu se disponível
+    if (currenttrophy && currenttrophy->isAllocated()) {
+        float trophySize = 120;
+        float trophyX = (projROI.width - trophySize) / 2; // Centraliza
+        float trophyY = trophyYPosition;
 
-        // Fundo semi-transparente atrás da medalha
+        // Fundo semi-transparente atrás da troféu
         ofSetColor(0, 0, 0, 80);
-        ofDrawCircle(medalX + medalSize / 2, medalY + medalSize / 2, medalSize * 0.7);
+        ofDrawCircle(trophyX + trophySize / 2, trophyY + trophySize / 2, trophySize * 0.7);
 
-        // Medalha
+        // troféu
         ofSetColor(255, 255, 255);
-        currentMedal->draw(medalX, medalY, medalSize, medalSize);
+        currenttrophy->draw(trophyX, trophyY, trophySize, trophySize);
 
-        // Texto da medalha (opcional)
-        if (!medalText.empty()) {
+        // Texto da troféu (opcional)
+        if (!trophyText.empty()) {
             ofSetColor(255, 255, 200);
-            scoreFont.drawString(medalText, 
-                (projROI.width - scoreFont.stringWidth(medalText)) / 2, 
-                medalY + medalSize + 30);
+            scoreFont.drawString(trophyText, 
+                (projROI.width - scoreFont.stringWidth(trophyText)) / 2, 
+                trophyY + trophySize + 30);
         }
     }
     ofPopStyle();
@@ -752,9 +752,9 @@ void CFeedingGameController::drawLevelCompleteScreen()
     // CAMADA 3: TEXTO SEM FUNDO
     ofPushStyle();
 
-    // Posição Y do texto (ajustada para medalha)
-    float textBoxY = (currentMedal && currentMedal->isAllocated()) ? 
-                     medalYPosition + 210 : 230;
+    // Posição Y do texto (ajustada para troféu)
+    float textBoxY = (currenttrophy && currenttrophy->isAllocated()) ? 
+                     trophyYPosition + 210 : 230;
 
     // Obtém configurações do nível atual e próximo
     LevelConfig currentConfig = levelConfigs[currentLevel - 2];
