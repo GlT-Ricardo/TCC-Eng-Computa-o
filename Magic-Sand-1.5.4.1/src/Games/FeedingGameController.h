@@ -1,5 +1,26 @@
 /***********************************************************************
 FeedingGameController.h - Controller for a Feeding animal game
+MIT License
+
+Copyright (c) 2025 GlT-Ricardo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ***********************************************************************/
 
 #ifndef _FeedingGameController_h_
@@ -11,168 +32,174 @@ FeedingGameController.h - Controller for a Feeding animal game
 class CFeedingGameController
 {
 public:
-	CFeedingGameController();
-	virtual ~CFeedingGameController();
+    // Construtor e destrutor
+    CFeedingGameController();        // Inicializa o controlador do jogo de alimentação
+    virtual ~CFeedingGameController(); // Destrutor virtual para limpeza
 
-	void setup(std::shared_ptr<KinectProjector> const& k);
-	void update();
-	void drawProjectorWindow();
-	void drawMainWindow(float x, float y, float width, float height);
+    // Métodos de ciclo de vida do jogo
+    void setup(std::shared_ptr<KinectProjector> const& k); // Configura dependências
+    void update();                                          // Atualiza lógica do jogo a cada frame
+    void drawProjectorWindow();                             // Renderiza para janela do projetor
+    void drawMainWindow(float x, float y, float width, float height); // Renderiza para janela principal
 
-	bool StartGame();
-	bool isIdle();
-	bool isInIntro();
-	void startFromIntro();
-	void goBackToIdle();
+    // Controle de fluxo do jogo
+    bool StartGame();       // Inicia o jogo (retorna true se bem-sucedido)
+    bool isIdle();          // Verifica se jogo está no estado IDLE
+    bool isInIntro();       // Verifica se jogo está no estado INTRO
+    void startFromIntro();  // Transiciona de INTRO para PLAYING
+    void goBackToIdle();    // Retorna ao estado IDLE (reinício)
 
-	void setProjectorRes(ofVec2f& PR);
-	void setKinectRes(ofVec2f& KR);
-	void setKinectROI(ofRectangle &KROI);
+    // Configuração de resolução e áreas
+    void setProjectorRes(ofVec2f& PR);      // Define resolução do projetor
+    void setKinectRes(ofVec2f& KR);         // Define resolução do Kinect
+    void setKinectROI(ofRectangle &KROI);   // Define região de interesse do Kinect
 
 private:
-	std::shared_ptr<KinectProjector> kinectProjector;
+    // Dependências externas
+    std::shared_ptr<KinectProjector> kinectProjector; // Ponteiro para sistema Kinect-Projector
 
-	// Game states
-	enum GameState {
-		STATE_IDLE,
-		STATE_INTRO,
-		STATE_PLAYING,
-		STATE_LEVEL_COMPLETE,
-		STATE_LEVEL_FAILED,
-		STATE_SHOWING_RESULTS
-	};
+    // Sistema de estados do jogo
+    enum GameState {
+        STATE_IDLE,            // Estado inicial/inativo
+        STATE_INTRO,           // Tela de introdução/apresentação
+        STATE_PLAYING,         // Jogo em andamento
+        STATE_LEVEL_COMPLETE,  // Nível concluído com sucesso
+        STATE_LEVEL_FAILED,    // Nível falhou (não usado atualmente)
+        STATE_SHOWING_RESULTS  // Exibindo resultados (vitória/derrota)
+    };
 
-	GameState currentState;
-	float gameStartTime;
-	float introStartTime;
-	float resultsStartTime;
-	float levelTransitionStartTime;
-	float introDisplayTime;
-	float resultsDisplayTime;
-	float levelTransitionDuration;
-	bool victory;
+    // Variáveis de estado atual
+    GameState currentState;           // Estado atual do jogo
+    float gameStartTime;              // Timestamp de início do jogo
+    float introStartTime;             // Timestamp de início da introdução
+    float resultsStartTime;           // Timestamp de início da exibição de resultados
+    float levelTransitionStartTime;   // Timestamp de início da transição de nível
+    float introDisplayTime;           // Duração da tela de introdução
+    float resultsDisplayTime;         // Duração da tela de resultados
+    float levelTransitionDuration;    // Duração da transição entre níveis
+    bool victory;                     // Flag de vitória (true = vitória, false = derrota)
 
-	// SISTEMA DE N�VEIS
-	int currentLevel;
-	int maxLevels;
-	bool levelCompleted;
-	float levelStartTime;
-	float levelDuration;
-	int targetFood;
+    // SISTEMA DE NÍVEIS
+    int currentLevel;      // Nível atual (1-based)
+    int maxLevels;         // Número total de níveis disponíveis
+    bool levelCompleted;   // Flag indicando se nível atual foi completado
+    float levelStartTime;  // Timestamp de início do nível atual
+    float levelDuration;   // Duração máxima do nível atual (em segundos)
+    int targetFood;        // Quantidade de comida necessária para completar o nível
 
-	// CONFIGURA��ES POR N�VEL
-	struct LevelConfig {
-		int levelNumber;
-		int initialFish;
-		int targetFood;
-		float foodSpawnRate;
-		float duration;
-		std::string levelName;
-	};
-	std::vector<LevelConfig> levelConfigs;
+    // Estrutura de configuração por nível
+    struct LevelConfig {
+        int levelNumber;       // Número do nível (1, 2, 3...)
+        int initialFish;       // Quantidade inicial de peixes
+        int targetFood;        // Quantidade de comida necessária para completar
+        float foodSpawnRate;   // Intervalo entre spawns de comida (em segundos)
+        float duration;        // Duração do nível (em segundos)
+        std::string levelName; // Nome descritivo do nível
+    };
+    std::vector<LevelConfig> levelConfigs; // Vetor com configurações de todos os níveis
 
-	// Game variables
-	int foodCollected;
-	int totalFood;
-	int initialFishCount;
+    // Variáveis de estado do jogo
+    int foodCollected;        // Comida coletada no nível atual
+    int totalFood;            // Comida total coletada em todo o jogo
+    int initialFishCount;     // Número inicial de peixes (do nível atual)
 
-	// Food items
-	struct FoodItem {
-		ofPoint location;
-		bool active;
-		float spawnTime;
-	};
-	std::vector<FoodItem> foodItems;
-	float foodSpawnInterval;
-	float lastFoodSpawnTime;
-	int maxFoodItems;
+    // Sistema de itens de comida
+    struct FoodItem {
+        ofPoint location;     // Posição da comida em coordenadas Kinect
+        bool active;          // Flag indicando se a comida está ativa/disponível
+        float spawnTime;      // Timestamp quando a comida foi spawnada
+    };
+    std::vector<FoodItem> foodItems; // Vetor de itens de comida ativos
+    float foodSpawnInterval;         // Intervalo atual entre spawns (do nível)
+    float lastFoodSpawnTime;         // Último timestamp de spawn de comida
+    int maxFoodItems;                // Número máximo de itens de comida simultâneos
 
-	// Spawn areas
-	ofVec2f projRes;
-	ofVec2f kinectRes;
-	ofRectangle kinectROI;
-	ofRectangle projROI;
+    // Áreas de spawn e projeção
+    ofVec2f projRes;           // Resolução do projetor (largura, altura)
+    ofVec2f kinectRes;         // Resolução do Kinect (largura, altura)
+    ofRectangle kinectROI;     // Região de interesse no Kinect (área válida)
+    ofRectangle projROI;       // Região de interesse no projetor (tela completa)
 
-	// Animals
-	std::vector<Fish> fish;
+    // Animais do jogo (apenas peixes - não há tubarões neste jogo)
+    std::vector<Fish> fish;    // Vetor de peixes controláveis
 
-	// FBO for drawing
-	ofFbo fboGame;
+    // Sistema de renderização
+    ofFbo fboGame;          // Frame Buffer Object para renderização off-screen
 
-	// Fonts
-	ofTrueTypeFont gameFont;
-	ofTrueTypeFont scoreFont;
+    // Fontes para texto
+    ofTrueTypeFont gameFont;   // Fonte para títulos principais
+    ofTrueTypeFont scoreFont;  // Fonte para informações de jogo
 
-	// Images
-	ofImage splashScreen;
+    // Sistema de imagens
+    ofImage splashScreen;     // Imagem da tela de introdução/splash
 
-	// IMAGENS PARA EFEITOS VISUAIS
-	ofImage confettiImage;
-	ofImage starsImage;
-	ofImage trophyImage;      // Apenas para vit�ria final
-	ofImage bronzeMedalImage; // Medalha bronze para fase 1
-	ofImage silverMedalImage; // Medalha prata para fase 2  
-	ofImage goldMedalImage;   // Medalha ouro para fase 3
-	ofImage fireworksImage;
+    // IMAGENS PARA EFEITOS VISUAIS
+    ofImage confettiImage;     // Textura de confete para celebrações
+    ofImage starsImage;        // Textura de estrelas para efeitos
+    ofImage trophyImage;       // Textura do troféu (vitória final)
+    ofImage bronzetrophyImage;  // Textura de troféu bronze (nível 1)
+    ofImage silvertrophyImage;  // Textura de troféu prata (nível 2)
+    ofImage goldtrophyImage;    // Textura de troféu ouro (nível 3)
+    ofImage fireworksImage;    // Textura de fogos de artifício
 
-	// SISTEMA DE PART�CULAS PARA CONFETE
-	struct ConfettiParticle {
-		ofVec2f position;
-		ofVec2f velocity;
-		ofColor color;
-		float size;
-		float rotation;
-		float rotationSpeed;
-	};
-	std::vector<ConfettiParticle> confettiParticles;
+    // Sistema de partículas para efeitos de confete
+    struct ConfettiParticle {
+        ofVec2f position;       // Posição atual da partícula
+        ofVec2f velocity;       // Velocidade e direção
+        ofColor color;          // Cor do confete
+        float size;             // Tamanho em pixels
+        float rotation;         // Rotação atual em graus
+        float rotationSpeed;    // Velocidade de rotação
+    };
+    std::vector<ConfettiParticle> confettiParticles; // Lista de partículas ativas
 
-	// ANIMA��O DE ESTRELAS PISCANDO
-	struct StarEffect {
-		ofVec2f position;
-		float size;
-		float alpha;
-		float pulseSpeed;
-	};
-	std::vector<StarEffect> starEffects;
+    // Sistema de efeitos de estrelas piscantes
+    struct StarEffect {
+        ofVec2f position;       // Posição da estrela
+        float size;             // Tamanho da estrela
+        float alpha;            // Valor alpha atual (transparência)
+        float pulseSpeed;       // Velocidade da animação de pulsação
+    };
+    std::vector<StarEffect> starEffects; // Lista de estrelas ativas
 
-	// CONTROLES DE TAMANHO E POSI��O
-	float starMinSize;
-	float starMaxSize;
-	float medalYPosition;
-	float trophyYPosition;
+    // CONTROLES DE TAMANHO E POSIÇÃO
+    float starMinSize;      // Tamanho mínimo para estrelas
+    float starMaxSize;      // Tamanho máximo para estrelas
+    float trophyYPosition;   // Posição Y para troféus
+    float trophyYPosition;  // Posição Y para troféu
 
-	// FLAGS PARA CONTROLE DE EFEITOS
-	bool levelCompleteEffectsGenerated;
-	bool victoryEffectsGenerated;
+    // FLAGS PARA CONTROLE DE EFEITOS
+    bool levelCompleteEffectsGenerated; // Efeitos de nível completo já foram gerados?
+    bool victoryEffectsGenerated;       // Efeitos de vitória já foram gerados?
 
-	// Game methods
-	void setupLevels();
-	void applyLevelConfig(int level);
-	void goToNextLevel();
-	void spawnInitialFish();
-	void spawnFood();
-	void updateGameState();
-	void checkFoodCollection();
-	void drawFoodItems();
-	void drawGameInfo();
-	void drawIntroScreen();
-	void drawLevelCompleteScreen();
-	void drawVictoryScreen();
-	void drawTryAgainScreen();
-	void resetGame();
+    // Métodos de lógica do jogo (implementados no .cpp)
+    void setupLevels();                 // Inicializa configurações dos níveis
+    void applyLevelConfig(int level);   // Aplica configuração de um nível específico
+    void goToNextLevel();               // Avança para o próximo nível
+    void spawnInitialFish();            // Spawna peixes iniciais do nível
+    void spawnFood();                   // Spawna um novo item de comida
+    void updateGameState();             // Atualiza estado dos animais e colisões
+    void checkFoodCollection();         // Verifica colisões peixe-comida
+    void drawFoodItems();               // Renderiza itens de comida na tela
+    void drawGameInfo();                // Renderiza HUD com informações
+    void drawIntroScreen();             // Renderiza tela de introdução
+    void drawLevelCompleteScreen();     // Renderiza tela de nível completo
+    void drawVictoryScreen();           // Renderiza tela de vitória final
+    void drawTryAgainScreen();          // Renderiza tela de "tente novamente" (derrota)
+    void resetGame();                   // Reseta jogo para estado inicial
 
-	// EFEITOS VISUAIS
-	void generateConfettiEffects();
-	void generateStarEffects();
-	void generateVictoryEffects();
-	void updateVisualEffects();
-	void clearVisualEffects();
-	void debugPrintImageStatus();
+    // Métodos de efeitos visuais
+    void generateConfettiEffects();     // Gera partículas de confete
+    void generateStarEffects();         // Gera efeitos de estrelas
+    void generateVictoryEffects();      // Gera efeitos especiais de vitória
+    void updateVisualEffects();         // Atualiza animações de efeitos visuais
+    void clearVisualEffects();          // Limpa todos os efeitos visuais
+    void debugPrintImageStatus();       // Debug: imprime status das imagens carregadas
 
-	// Helper methods
-	void addNewFish();
-	bool setRandomFishLocation(ofVec2f &location);
-	bool setRandomFoodLocation(ofVec2f &location);
+    // Métodos auxiliares
+    void addNewFish();                  // Adiciona um novo peixe à cena
+    bool setRandomFishLocation(ofVec2f &location); // Encontra posição válida para spawn de peixe
+    bool setRandomFoodLocation(ofVec2f &location); // Encontra posição válida para spawn de comida
 };
 
 #endif
