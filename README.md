@@ -105,7 +105,7 @@ Neste projeto é apresentado o desenvolvimento de jogos para o  sistema ARSandpl
 ## 📸 Resultado
 
 div align="center"
-img src="https://github.com/user-attachments/assets/607098f0-c5aa-4bce-b436-5c3c1e76d3fb" /
+img src="https://github.com/GlT-Ricardo/TCC-Eng-Computa-o/issues/1#issue-3745774424" width="0px" /
 /div
 ---
 
