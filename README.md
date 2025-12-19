@@ -5,12 +5,12 @@
 ### **Universidade: Pontifícia Universidade Católica de Goiás**
 ### **Trabalho de Conclusão de Curso**
 ### **Projeto:DESENVOLVIMENTO DE JOGOS UTILIZANDO INTERFACE TANGÍVEL**
-
+### **Disponível em:** https://repositorio.pucgoias.edu.br/jspui/handle/123456789/10244
 ---
 
 ## **Descrição do Projeto**
 Este projeto apresenta o desenvolvimento de dois jogos, **Jogo de Sobrevivência e Jogo da Alimentação** para o sistema 3D SandPlay, uma plataforma de interface tangível que projeta elementos virtuais sobre uma caixa de areia. Podendo ser utilizada tanto para **entretenimento** quanto como reforçador do **desenvolvimento intelectual e da coordenação motora**. De forma exploratória, o trabalho investiga a reutilização do 3D SandPlay como base para o desenvolvimento de jogos. O projeto foi inspirado e adaptado do [Projeto 3D SandPlay](https://github.com/josefoberdan/Projeto3DSandPlay) (Josef Oberdan et al.) e do  [Augmented Reality Sandbox](https://arsandbox.ucdavis.edu/) desenvolvido pela [UC Davis](http://idav.ucdavis.edu/~okreylos/ResDev/SARndbox/), sendo uma adaptação parcial do [SARndbox](https://github.com/KeckCAVES/SARndbox) de Oliver Kreylos  em [openframeworks](https://openframeworks.cc/) seguindo os termos de licença do projeto original [Magic-Sand](https://github.com/thomwolf/Magic-Sand).
-
+O desenvolvimento dos jogos foi realizado por meio da IDE Visual Studio 2015, utilizando a linguagem de programação C++.
 ---
 ## **Requisitos do Sistema**
 - Antes de iniciar, garanta que você tenha:
@@ -35,9 +35,9 @@ Este projeto apresenta o desenvolvimento de dois jogos, **Jogo de Sobrevivência
 
 ---
 
-
+--
 ## **Como Rodar o Projeto**
-## 🧰 Passo 1 – Instalação dos Componentes Físicos
+## 🛠️ Passo 1 – Instalação dos Componentes Físicos
 
 ### 1. Conectar o Hardware
 - Conecte o **Kinect** e o **Projetor** ao computador.
@@ -70,9 +70,44 @@ Este projeto apresenta o desenvolvimento de dois jogos, **Jogo de Sobrevivência
 ### 2. Baixar o Software
 - [Magic-Sand (GitHub)](https://github.com/thomwolf/Magic-Sand/releases/tag/v1.5.4.1)
 
-### 3. Adicionar OpenFrameworks (Opcional)
+### 3. Adicionar OpenFrameworks
 - [OpenFrameworks](https://openframeworks.cc/)
 
+### **Projeto completo**
+Os links abaixo disponibilizam o projeto completo para download, já contendo o openFrameworks, Magic-Sand e a implementação dos jogos.
+
+https://pucdegoias-my.sharepoint.com/:u:/g/personal/20201003300528_pucgo_edu_br/IQCyIwgUQk8ZQpDDkVgaDqTeAQkxBXFY0gmbFaWr0d4GX1o?e=QtHvHZ
+
+https://drive.google.com/file/d/1sRuz57vkgQPSCupiT6Fhi6AxWgonJP_m/view?usp=drive_link
+
+Ao realizar o download, abra o projeto no ambiente de desenvolvimento seguindo esses passos:
+
+  1 - Abra o **Visual Studio** e clique em **Arquivo (File)**, em seguida clique em **Abrir (Open)** e clique em **Projeto/Solução(Project/Solution)**.
+  
+  2 - Busque o diretório onde se encontra o projeto baixado, por exemplo:
+  
+  C:\Users\User\Desktop\3D_SANDPLAY COMPLETO\project\of_v0.9.8_vs_release\apps\myApps\Magic-Sand-1.5.4.1
+  
+  3 - Dentro da pasta **Magic-Sand-1.5.4.1** selecione o arquivo **Magic-Sand.sln** para abrir projeto.
+  
+  4 - Após o carregamento do projeto, abra os arquivos de edição clicando em **Arquivo (File)**, em sequida clique em **Abrir (Open)** e clique em **Arquivo... (File...)**.
+  
+  Busque novamente o diretorio do projeto, mas desta vez, acesse a pasta **src**, dentro dela se encontra os arquivos para edição.
+  
+  C:\Users\User\Desktop\3D_SANDPLAY COMPLETO\project\of_v0.9.8_vs_release\apps\myApps\Magic-Sand-1.5.4.1\src
+  
+  5 - Na pasta **src**, os principais arquivos para edição são: **ofApp.h e ofApp..cpp**.
+  
+  Nas subpastas do diretório, se encontra as pastas **Games**, **KinectProjector** e **SandSurfaceRenderer**
+  
+  Para modificações e implementações, foi utilizado os arquivos que se encontram na pasta **Games**, especificamente, implementando os novos arquivos dos jogos:
+  
+  **FeedingGameController.ccp e .h** 
+  
+  **SurvivalGameController.cpp e .h**
+
+  Para modificações dos **peixes** e **tubarões** é preciso acessar dos arquivos **vehicle.cpp e .h**
+  
 ---
 
 ## 🎯 Passo 3 – Calibrar a Aplicação
@@ -90,7 +125,7 @@ Este projeto apresenta o desenvolvimento de dois jogos, **Jogo de Sobrevivência
 
 ---
 
-## 🟢 Passo 4 – Executar a Aplicação
+## ⚙️ Passo 4 – Executar a Aplicação
 
 1. Clique em **RUN**
 2. Verifique:
