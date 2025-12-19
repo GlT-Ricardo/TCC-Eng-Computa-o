@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "ofMain.h"
 #include "ofxDatGui.h"
@@ -6,8 +6,8 @@
 #include "SandSurfaceRenderer/SandSurfaceRenderer.h"
 #include "Games/MapGameController.h"
 #include "Games/BoidGameController.h"
-#include "Games/SurvivalGameController.h"    // ← ADICIONAR
-#include "Games/FeedingGameController.h"     // ← ADICIONAR
+#include "Games/SurvivalGameController.h"    // Adicionados
+#include "Games/FeedingGameController.h"     // Adicionados
 
 class ofApp : public ofBaseApp {
 
@@ -38,9 +38,9 @@ private:
 	SandSurfaceRenderer* sandSurfaceRenderer;
 	CMapGameController mapGameController;
 	CBoidGameController boidGameController;
-	CSurvivalGameController survivalGameController;  // ← ADICIONAR
-	CFeedingGameController feedingGameController;    // ← ADICIONAR
+	CSurvivalGameController survivalGameController;  // Adicionados
+	CFeedingGameController feedingGameController;    // Adicionados
 
-													 // Main window ROI 
-	ofRectangle mainWindowROI;
+													 
+	ofRectangle mainWindowROI;			// Main window ROI 	
 };
