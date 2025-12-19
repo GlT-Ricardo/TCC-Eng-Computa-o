@@ -98,15 +98,56 @@ Neste projeto é apresentado o desenvolvimento de jogos para o  sistema ARSandpl
    - **FRAMERATE em torno de 30 -60 FPS**
 3. Para dar inicio os jogos use comandos via teclado, com as telas 1 e 2:
   - Precionando a **tecla 1**, será iniciado o **Jogo da Alimentação**
+       Neste jogo, deve-se criar canais na areia para guiar os peixes até os alimentos virtuais. Utilize o relevo da areia para formar caminhos que direcionem os peixes, coletando os alimentos dentro do tempo limite de           cada nível.
   - Precionando a **tecla 2**, será iniciado o **Jogo da Sobrevicência**
+      Neste jogo, deve-se proteger os peixes virtuais dos tubarões predadores criando barreiras físicas na areia. Modele elevações e montanhas que impeçam a passagem dos tubarões, mantendo os peixes em segurança dentro do       tempo limite de cada nível .
 
 ---
 
-## 📸 Resultado
+## 🎮 Demonstração dos Jogos
 
-div align="center"
-img src="https://github.com/GlT-Ricardo/TCC-Eng-Computa-o/issues/1#issue-3745774424" width="0px" /
-/div
+---
+
+### ▶️ Vídeos Demonstrativos
+
+#### Jogo da Alimentação
+
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/686e338d-3ead-4077-bd04-73201819d6c0" width="250"/>
+</p>
+
+#### Jogo da Sobrevivência
+
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/d3b90953-c52a-4907-b5dd-e6291f3a9a9e" width="250"/>
+</p>
+
+---
+
+### 🐟 Resultados — Jogo da Alimentação
+
+| Fase 1                                                                                                   | Fase 2                                                                                                   | Fase 3                                                                                                   |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/d0f2b954-f903-4c39-be66-6fd1091061a9" width="250"/> | <img src="https://github.com/user-attachments/assets/e2e716b5-fec8-4f46-8eb7-f4d84891fa5e" width="250"/> | <img src="https://github.com/user-attachments/assets/b3e10277-601e-4a28-ba8c-9fb0c27cfb5a" width="250"/> |
+
+---
+
+### 🦈 Resultados — Jogo da Sobrevivência
+
+| Fase 1                                                                                                   | Fase 2                                                                                                   | Fase 3                                                                                                   |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/2ef041c8-8991-45f1-86ab-071127c86504" width="250"/> | <img src="https://github.com/user-attachments/assets/70fdf837-f9c2-46a9-80c5-f0aeb63b9121" width="250"/> | <img src="https://github.com/user-attachments/assets/a68ff059-4d25-4f20-b8b4-5f61e9e4a63c" width="250"/> |
+
+---
+
+### ❌ Tela de Game Over
+
+<p align="letf">
+  <img src="https://github.com/user-attachments/assets/f86380e9-2970-49f3-ac53-7f81560a5453" width="350"/>
+</p>
+
+
+
 ---
 
 ## 🔗 Licenças
