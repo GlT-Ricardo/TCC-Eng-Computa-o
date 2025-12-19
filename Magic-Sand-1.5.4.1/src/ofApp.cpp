@@ -120,11 +120,11 @@ void ofApp::drawProjWindow(ofEventArgs &args)
 
 void ofApp::keyPressed(int key)
 {
-	if (key == OF_KEY_ESC) // TECLA ESC - volta ao menu
+	if (key == OF_KEY_ESC) // TECLA ESC - Encerra o sitema
 	{
 		if (kinectProjector->GetApplicationState() == KinectProjector::APPLICATION_STATE_RUNNING)
 		{
-			// Verifica se est· na introduÁ„o e volta ao menu
+			// Verifica se est√° na introdu√ß√£o e volta ao menu
 			if (survivalGameController.isInIntro()) {
 				survivalGameController.goBackToIdle();
 			}
@@ -137,7 +137,7 @@ void ofApp::keyPressed(int key)
 	{
 		if (kinectProjector->GetApplicationState() == KinectProjector::APPLICATION_STATE_RUNNING)
 		{
-			// PRIMEIRO: Verifica se est· na introduÁ„o e inicia o jogo
+			// PRIMEIRO: Verifica se est√° na introdu√ß√£o e inicia o jogo
 			if (survivalGameController.isInIntro()) {
 				survivalGameController.startFromIntro();
 			}
