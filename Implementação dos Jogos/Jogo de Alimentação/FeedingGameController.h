@@ -137,9 +137,9 @@ private:
     ofImage confettiImage;     // Textura de confete para celebrações
     ofImage starsImage;        // Textura de estrelas para efeitos
     ofImage trophyImage;       // Textura do troféu (vitória final)
-    ofImage bronzeMedalImage;  // Textura de medalha bronze (nível 1)
-    ofImage silverMedalImage;  // Textura de medalha prata (nível 2)
-    ofImage goldMedalImage;    // Textura de medalha ouro (nível 3)
+    ofImage bronzetrophyImage;  // Textura de troféu bronze (nível 1)
+    ofImage silvertrophyImage;  // Textura de troféu prata (nível 2)
+    ofImage goldtrophyImage;    // Textura de troféu ouro (nível 3)
     ofImage fireworksImage;    // Textura de fogos de artifício
 
     // Sistema de partículas para efeitos de confete
@@ -165,7 +165,7 @@ private:
     // CONTROLES DE TAMANHO E POSIÇÃO
     float starMinSize;      // Tamanho mínimo para estrelas
     float starMaxSize;      // Tamanho máximo para estrelas
-    float medalYPosition;   // Posição Y para medalhas
+    float trophyYPosition;   // Posição Y para troféus
     float trophyYPosition;  // Posição Y para troféu
 
     // FLAGS PARA CONTROLE DE EFEITOS
